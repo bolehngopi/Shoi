@@ -38,6 +38,7 @@ extends CharacterBody3D
 @export var PAUSE : String = "ui_cancel"
 @export var CROUCH : String = "crouch"
 @export var SPRINT : String = "sprint"
+@export var debug_panel : String = "debug"
 
 # Uncomment if you want full controller support
 #@export var LOOK_LEFT : String
@@ -59,6 +60,7 @@ extends CharacterBody3D
 @export var jump_animation : bool = true
 @export var pausing_enabled : bool = true
 @export var gravity_enabled : bool = true
+@export var main_menu : MarginContainer
 
 
 # Member variables
@@ -68,6 +70,7 @@ var current_speed : float = 0.0
 var state : String = "normal"
 var low_ceiling : bool = false # This is for when the cieling is too low and the player needs to crouch.
 var was_on_floor : bool = true # Was the player on the floor last frame (for landing animation)
+var frames_per_second : String
 
 # The reticle should always have a Control node as the root
 var RETICLE : Control
@@ -133,18 +136,20 @@ func change_reticle(reticle): # Yup, this function is kinda strange
 
 
 func _physics_process(delta):
-	# Big thanks to github.com/LorenzoAncora for the concept of the improved debug values
-	#current_speed = Vector3.ZERO.distance_to(get_real_velocity())
-	#$UserInterface/DebugPanel.add_property("Speed", snappedf(current_speed, 0.001), 1)
-	#$UserInterface/DebugPanel.add_property("Target speed", speed, 2)
-	#var cv : Vector3 = get_real_velocity()
-	#var vd : Array[float] = [
-		#snappedf(cv.x, 0.001),
-		#snappedf(cv.y, 0.001),
-		#snappedf(cv.z, 0.001)
-	#]
-	#var readable_velocity : String = "X: " + str(vd[0]) + " Y: " + str(vd[1]) + " Z: " + str(vd[2])
-	#$UserInterface/DebugPanel.add_property("Velocity", readable_velocity, 3)
+	#Big thanks to github.com/LorenzoAncora for the concept of the improved debug values
+	frames_per_second = "%.2f" % (1.0/delta)
+	$UserInterface/DebugPanel.add_property("FPS", frames_per_second, 1)
+	current_speed = Vector3.ZERO.distance_to(get_real_velocity())
+	$UserInterface/DebugPanel.add_property("Speed", snappedf(current_speed, 0.001), 2)
+	$UserInterface/DebugPanel.add_property("Target speed", speed, 3)
+	var cv : Vector3 = get_real_velocity()
+	var vd : Array[float] = [
+		snappedf(cv.x, 0.001),
+		snappedf(cv.y, 0.001),
+		snappedf(cv.z, 0.001)
+	]
+	var readable_velocity : String = "X: " + str(vd[0]) + " Y: " + str(vd[1]) + " Z: " + str(vd[2])
+	$UserInterface/DebugPanel.add_property("Velocity", readable_velocity, 4)
 	
 	# Gravity
 	#gravity = ProjectSettings.get_setting("physics/3d/default_gravity") # If the gravity changes during your game, uncomment this code
@@ -319,19 +324,15 @@ func headbob_animation(moving):
 
 
 func _process(delta):
-	#$UserInterface/DebugPanel.add_property("FPS", Performance.get_monitor(Performance.TIME_FPS), 0)
-	#var status : String = state
-	#if !is_on_floor():
-		#status += " in the air"
-	#$UserInterface/DebugPanel.add_property("State", status, 4)
-	
 	if pausing_enabled:
 		if Input.is_action_just_pressed(PAUSE):
 			match Input.mouse_mode:
 				Input.MOUSE_MODE_CAPTURED:
 					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+					main_menu.show()
 				Input.MOUSE_MODE_VISIBLE:
 					Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+					main_menu.hide()
 	
 	
 	HEAD.rotation.x = clamp(HEAD.rotation.x, deg_to_rad(-90), deg_to_rad(90))

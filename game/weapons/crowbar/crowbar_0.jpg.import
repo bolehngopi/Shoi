@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl6bnhhcqsljp"
-path.s3tc="res://.godot/imported/texture_06.png-96fbf63c84855b5763ca7a9239b4162f.s3tc.ctex"
+uid="uid://ci165ckmy7c85"
+path.s3tc="res://.godot/imported/crowbar_0.jpg-04d1e73b66420c4830c23505a50dffc7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "697fc45dbaf68f3614d3a3bd8c3da146"
+}
 
 [deps]
 
-source_file="res://addons/kenney_prototype_textures/orange/texture_06.png"
-dest_files=["res://.godot/imported/texture_06.png-96fbf63c84855b5763ca7a9239b4162f.s3tc.ctex"]
+source_file="res://game/weapons/crowbar/crowbar_0.jpg"
+dest_files=["res://.godot/imported/crowbar_0.jpg-04d1e73b66420c4830c23505a50dffc7.s3tc.ctex"]
 
 [params]
 

@@ -1,12 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://wmjdmcyixcjs"]
+[gd_scene load_steps=20 format=3 uid="uid://wmjdmcyixcjs"]
 
 [ext_resource type="Script" path="res://game/characters/player/player.gd" id="1_cqod6"]
-[ext_resource type="PackedScene" uid="uid://bola7vagcprt2" path="res://game/weapons/weapon.tscn" id="2_8580v"]
 [ext_resource type="PackedScene" uid="uid://cpkopr21ar6ix" path="res://game/menu/main_menu.tscn" id="2_yj6xm"]
 [ext_resource type="Theme" uid="uid://c1xnmgq3iqqij" path="res://game/ui/themes/debug.tres" id="3_dnnpk"]
 [ext_resource type="Script" path="res://game/scripts/debug.gd" id="4_708jv"]
-[ext_resource type="Script" path="res://game/scripts/WeaponVievport.gd" id="6_arlww"]
-[ext_resource type="Script" path="res://game/scripts/WeaponCamera.gd" id="7_vffjw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kf7ot"]
 
@@ -363,23 +360,16 @@ shape = SubResource("CapsuleShape3D_kf7ot")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_0o6vh")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-cull_mask = 1048573
 
 [node name="AimCast" type="RayCast3D" parent="Head/Camera3D"]
 debug_shape_custom_color = Color(0, 0, 0.803922, 1)
 debug_shape_thickness = 3
-
-[node name="WeaponRig" type="Node3D" parent="Head/Camera3D"]
-
-[node name="Weapon" parent="Head/Camera3D/WeaponRig" instance=ExtResource("2_8580v")]
-transform = Transform3D(-1.98903, 0.209098, 0.00485781, 0.00844423, 0.033868, 1.9997, 0.208984, 1.98875, -0.0345651, 0.13, -0.165, -0.22)
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {
@@ -407,13 +397,12 @@ visible = false
 layout_mode = 1
 
 [node name="DebugPanel" type="PanelContainer" parent="UserInterface"]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 210.0
 offset_bottom = 50.0
-mouse_filter = 1
 theme = ExtResource("3_dnnpk")
 script = ExtResource("4_708jv")
 
@@ -433,22 +422,3 @@ target_position = Vector3(0, 0.5, 0)
 libraries = {
 "": SubResource("AnimationLibrary_5wxln")
 }
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-render_target_update_mode = 4
-script = ExtResource("6_arlww")
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("MAIN_CAMERA")]
-visible = false
-cull_mask = 1048574
-script = ExtResource("7_vffjw")
-MAIN_CAMERA = NodePath(".")

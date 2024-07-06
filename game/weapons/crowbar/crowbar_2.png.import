@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl6bnhhcqsljp"
-path.s3tc="res://.godot/imported/texture_06.png-96fbf63c84855b5763ca7a9239b4162f.s3tc.ctex"
+uid="uid://nknjl5mko78a"
+path.s3tc="res://.godot/imported/crowbar_2.png-2b789bf7543eb02380997d2a21e1781d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "9e2ae7fc9584f081f6cc6b6efac91df4"
+}
 
 [deps]
 
-source_file="res://addons/kenney_prototype_textures/orange/texture_06.png"
-dest_files=["res://.godot/imported/texture_06.png-96fbf63c84855b5763ca7a9239b4162f.s3tc.ctex"]
+source_file="res://game/weapons/crowbar/crowbar_2.png"
+dest_files=["res://.godot/imported/crowbar_2.png-2b789bf7543eb02380997d2a21e1781d.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +23,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://game/weapons/crowbar_2.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

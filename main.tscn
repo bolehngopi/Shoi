@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvb0rwccyxey"]
+[gd_scene load_steps=10 format=3 uid="uid://bvb0rwccyxey"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pgyu4"]
 [ext_resource type="Material" uid="uid://dt3rqrhsie8xy" path="res://assets/materials/black_prop.tres" id="1_plu7y"]
 [ext_resource type="PackedScene" uid="uid://wmjdmcyixcjs" path="res://game/characters/player/player.tscn" id="2_ogxp1"]
+[ext_resource type="Texture2D" uid="uid://cl6bnhhcqsljp" path="res://addons/kenney_prototype_textures/orange/texture_06.png" id="3_cm0im"]
 [ext_resource type="PackedScene" uid="uid://cpkopr21ar6ix" path="res://game/menu/main_menu.tscn" id="4_kn4vn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nbypl"]
@@ -18,6 +19,10 @@ background_mode = 2
 sky = SubResource("Sky_ptb5o")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyku5"]
+albedo_texture = ExtResource("3_cm0im")
+uv1_triplanar = true
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_pgyu4")
@@ -37,6 +42,21 @@ transform = Transform3D(1, 0, 0, 0, 2.00339, 0, 0, 0, 1, 2.26109, 0.271519, 0.01
 size = Vector3(18.9589, 0.953125, 32.852)
 material = ExtResource("1_plu7y")
 
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.00339, 0, 0, 0, 1, -7.06628, 5.47119, 0.0153055)
+size = Vector3(0.304157, 4.19617, 32.852)
+material = SubResource("StandardMaterial3D_vyku5")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.00339, 0, 0, 0, 1, 11.5688, 5.47119, 0.0153055)
+size = Vector3(0.304157, 4.19617, 32.852)
+material = SubResource("StandardMaterial3D_vyku5")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 2.00339, 0, -1, 0, -4.37114e-08, 2.25076, 5.47119, 16.4962)
+size = Vector3(0.304157, 4.19617, 18.9525)
+material = SubResource("StandardMaterial3D_vyku5")
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 2.00077, -0.0510636, 0, 0.1023, 0.998695, 3.15277, 1.32736, 7.06881)
 operation = 2
@@ -45,6 +65,7 @@ material = ExtResource("1_plu7y")
 
 [node name="Player" parent="." instance=ExtResource("2_ogxp1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220032, 9.14655, -4.40137)
+jump_velocity = 5.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
