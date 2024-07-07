@@ -1,11 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://bola7vagcprt2"]
+[gd_scene load_steps=13 format=3 uid="uid://bola7vagcprt2"]
 
 [ext_resource type="Script" path="res://game/scripts/init_weapon.gd" id="1_l6iib"]
-[ext_resource type="Resource" uid="uid://1yicbb0g4o3u" path="res://game/weapons/crowbar/mesh_crowbar.tres" id="2_rq53p"]
+[ext_resource type="Resource" uid="uid://bxctlu15syueu" path="res://game/weapons/pistol/mesh_pistol.tres" id="2_ceqhc"]
 [ext_resource type="Texture2D" uid="uid://ci165ckmy7c85" path="res://game/weapons/crowbar/crowbar_0.jpg" id="2_sfoii"]
 [ext_resource type="Texture2D" uid="uid://dl1h2bdyxjnfe" path="res://game/weapons/crowbar/crowbar_1.png" id="3_4d8ss"]
-[ext_resource type="ArrayMesh" uid="uid://cb5k6cblxwwax" path="res://game/weapons/crowbar/mesh.tres" id="3_t1orf"]
+[ext_resource type="ArrayMesh" uid="uid://bv2rriyx4w22v" path="res://game/weapons/pistol/pistol_mesh.res" id="3_untsm"]
 [ext_resource type="Texture2D" uid="uid://nknjl5mko78a" path="res://game/weapons/crowbar/crowbar_2.png" id="4_jxjdy"]
+
+[sub_resource type="Gradient" id="Gradient_u4wsu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s07m7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ger4w"]
+color_ramp = SubResource("Gradient_u4wsu")
+noise = SubResource("FastNoiseLite_s07m7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kn604"]
 resource_name = "DefaultMaterial"
@@ -55,13 +63,15 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g4wa6")
 
 [node name="Weapon" type="Node3D"]
-transform = Transform3D(-0.992541, 0.12189, 0.0024289, 0.00451701, 0.0168577, 0.999848, 0.12183, 0.992401, -0.0172825, 0.13, -0.165, -0.22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13, -0.165, -0.22)
 script = ExtResource("1_l6iib")
-WEAPON_TYPE = ExtResource("2_rq53p")
+WEAPON_TYPE = ExtResource("2_ceqhc")
+sway_noise = SubResource("NoiseTexture2D_ger4w")
+sway_speed = 200.0
 
 [node name="WeaponMesh" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-mesh = ExtResource("3_t1orf")
+mesh = ExtResource("3_untsm")
 
 [node name="WeaponShadow" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true

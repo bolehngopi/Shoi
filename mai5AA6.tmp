@@ -42,11 +42,6 @@ transform = Transform3D(1, 0, 0, 0, 2.00339, 0, 0, 0, 1, 2.26109, 0.271519, 0.01
 size = Vector3(18.9589, 0.953125, 32.852)
 material = ExtResource("1_plu7y")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(2.42124, 0, 0, 0, 2.00681, 0, 0, 0, 1.00171, 2.26109, 0.0775016, -25.6121)
-size = Vector3(18.9589, 0.759766, 20.5055)
-material = ExtResource("1_plu7y")
-
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 2.00339, 0, 0, 0, 1, -7.06628, 5.47119, 0.0153055)
 size = Vector3(0.304157, 4.19617, 32.852)
@@ -74,7 +69,7 @@ size = Vector3(11, 1, 17.3432)
 material = ExtResource("1_plu7y")
 
 [node name="Player" parent="." instance=ExtResource("2_ogxp1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220032, 5.12253, -4.40137)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220032, 9.14655, -4.40137)
 jump_velocity = 5.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -86,5 +81,5 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 9.06819, 0)
 light_color = Color(1, 1, 0.811765, 1)
 light_energy = 11.455
-spot_range = 19.043
-spot_angle = 26.0479
+spot_range = 20.5269
+spot_angle = 35.9619

@@ -4,9 +4,20 @@
 [ext_resource type="ArrayMesh" uid="uid://cb5k6cblxwwax" path="res://game/weapons/crowbar/mesh.tres" id="1_yfjp6"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_0dscu")
 name = &"Crowbar"
 position = Vector3(0.13, -0.165, -0.22)
 rotation = Vector3(-89, 172, 15)
+scale = Vector3(1, 1, 1)
+sway_min = Vector2(-20, -20)
+sway_max = Vector2(20, 20)
+sway_speed_position = 0.07
+sway_speed_rotation = 0.07
+sway_amount_position = 0.07
+sway_amount_rotation = 0.07
+idle_sway_adjusment = 100.0
+idle_sway_rotation_strength = 300.0
+random_sway_amount = 5.0
 mesh = ExtResource("1_yfjp6")
-shadow = false
+shadow = true

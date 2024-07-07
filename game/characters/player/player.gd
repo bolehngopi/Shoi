@@ -27,6 +27,7 @@ extends CharacterBody3D
 @export var JUMP_ANIMATION : AnimationPlayer
 @export var CROUCH_ANIMATION : AnimationPlayer
 @export var COLLISION_MESH : CollisionShape3D
+@export var WEAPON_CONTROLLER : WeaponController
 
 @export_group("Controls")
 # We are using UI controls because they are built into Godot Engine so they can be used right away
@@ -80,6 +81,8 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 
 
 func _ready():
+	Global.player = self
+	
 	#It is safe to comment this line if your game doesn't start with the mouse captured
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -138,7 +141,7 @@ func change_reticle(reticle): # Yup, this function is kinda strange
 func _physics_process(delta):
 	#Big thanks to github.com/LorenzoAncora for the concept of the improved debug values
 	frames_per_second = "%.2f" % (1.0/delta)
-	$UserInterface/DebugPanel.add_property("FPS", frames_per_second, 1)
+	Global.debug.add_property("FPS", frames_per_second, 1)
 	current_speed = Vector3.ZERO.distance_to(get_real_velocity())
 	$UserInterface/DebugPanel.add_property("Speed", snappedf(current_speed, 0.001), 2)
 	$UserInterface/DebugPanel.add_property("Target speed", speed, 3)
@@ -347,3 +350,6 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		HEAD.rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		HEAD.rotation_degrees.x -= event.relative.y * mouse_sensitivity
+	
+	if event.is_action_pressed("attack"):
+		WEAPON_CONTROLLER._attack()

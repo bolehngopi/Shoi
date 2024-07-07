@@ -17,7 +17,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/path = NodePath("Node3D/Camera3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +29,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position")
+tracks/1/path = NodePath("Node3D/Camera3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -45,7 +45,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/path = NodePath("Node3D/Camera3D:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -61,7 +61,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/path = NodePath("Node3D/Camera3D:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -73,7 +73,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position")
+tracks/1/path = NodePath("Node3D/Camera3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -89,7 +89,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
+tracks/0/path = NodePath("Node3D/Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -101,7 +101,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/path = NodePath("Node3D/Camera3D:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -124,7 +124,7 @@ length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/path = NodePath("Node3D/Camera3D:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -135,7 +135,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/path = NodePath("Node3D/Camera3D:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -151,7 +151,7 @@ loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/path = NodePath("Node3D/Camera3D:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -162,7 +162,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/path = NodePath("Node3D/Camera3D:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -178,7 +178,7 @@ loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/path = NodePath("Node3D/Camera3D:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -189,7 +189,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/path = NodePath("Node3D/Camera3D:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -340,16 +340,17 @@ _data = {
 "crouch": SubResource("Animation_3gvgp")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH", "main_menu")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH", "WEAPON_CONTROLLER", "main_menu")]
 script = ExtResource("1_cqod6")
 jump_velocity = 3.0
 default_reticle = "res://assets/reticle_1.tscn"
 HEAD = NodePath("Head")
-CAMERA = NodePath("Head/Camera3D")
+CAMERA = NodePath("Head/Node3D/Camera3D")
 HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")
 JUMP_ANIMATION = NodePath("Head/JumpAnimation")
 CROUCH_ANIMATION = NodePath("CrouchAnimation")
 COLLISION_MESH = NodePath("CollisionShape3D")
+WEAPON_CONTROLLER = NodePath("Head/Node3D/Camera3D/WeaponRig/Weapon")
 JUMP = "jump"
 LEFT = "left"
 RIGHT = "right"
@@ -369,18 +370,6 @@ mesh = SubResource("CapsuleMesh_0o6vh")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
-cull_mask = 1048573
-
-[node name="AimCast" type="RayCast3D" parent="Head/Camera3D"]
-debug_shape_custom_color = Color(0, 0, 0.803922, 1)
-debug_shape_thickness = 3
-
-[node name="WeaponRig" type="Node3D" parent="Head/Camera3D"]
-
-[node name="Weapon" parent="Head/Camera3D/WeaponRig" instance=ExtResource("2_8580v")]
-transform = Transform3D(-1.98903, 0.209098, 0.00485781, 0.00844423, 0.033868, 1.9997, 0.208984, 1.98875, -0.0345651, 0.13, -0.165, -0.22)
-
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {
 "": SubResource("AnimationLibrary_xp2ke")
@@ -391,6 +380,21 @@ speed_scale = 4.0
 libraries = {
 "": SubResource("AnimationLibrary_kc8ql")
 }
+
+[node name="Node3D" type="Node3D" parent="Head"]
+
+[node name="Camera3D" type="Camera3D" parent="Head/Node3D"]
+cull_mask = 1048573
+
+[node name="AimCast" type="RayCast3D" parent="Head/Node3D/Camera3D"]
+debug_shape_custom_color = Color(0, 0, 0.803922, 1)
+debug_shape_thickness = 3
+
+[node name="WeaponRig" type="Node3D" parent="Head/Node3D/Camera3D"]
+
+[node name="Weapon" parent="Head/Node3D/Camera3D/WeaponRig" instance=ExtResource("2_8580v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13, -0.165, -0.22)
+sway_speed = 4.455
 
 [node name="UserInterface" type="Control" parent="."]
 layout_mode = 3

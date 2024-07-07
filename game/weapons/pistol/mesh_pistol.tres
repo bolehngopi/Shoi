@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Weapons" load_steps=3 format=3 uid="uid://bxctlu15syueu"]
+
+[ext_resource type="Script" path="res://game/scripts/weapons.gd" id="1_51bii"]
+[ext_resource type="ArrayMesh" uid="uid://bv2rriyx4w22v" path="res://game/weapons/pistol/pistol_mesh.res" id="1_rymhe"]
+
+[resource]
+script = ExtResource("1_51bii")
+name = &"Pistol"
+position = Vector3(0.13, -0.165, -0.22)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+sway_min = Vector2(-20, -20)
+sway_max = Vector2(20, 20)
+sway_speed_position = 0.2
+sway_speed_rotation = 0.11
+sway_amount_position = 0.07
+sway_amount_rotation = 4.6
+idle_sway_adjusment = 10.85
+idle_sway_rotation_strength = 300.395
+random_sway_amount = 5.0
+mesh = ExtResource("1_rymhe")
+shadow = true
