@@ -3,7 +3,7 @@ class_name Weapons extends Resource
 @export var name : StringName
 
 @export_category("Weapon Orientation")
-@export var position : Vector3
+@export var position : Vector3 = Vector3(.13, -.165, -.22)
 @export var rotation : Vector3
 @export var scale : Vector3 = Vector3(1, 1, 1)
 

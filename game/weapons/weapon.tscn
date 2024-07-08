@@ -75,5 +75,4 @@ mesh = ExtResource("3_untsm")
 
 [node name="WeaponShadow" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-visible = false
 mesh = SubResource("ArrayMesh_cysj0")

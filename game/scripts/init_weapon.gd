@@ -90,6 +90,8 @@ func get_sway_noise() -> float:
 	return noise_location
 
 func _attack() -> void:
+	if Global.player.is_pause: return
+	
 	var camera = Global.player.CAMERA
 	var space_state = camera.get_world_3d().direct_space_state
 	var screen_center = get_viewport().size / 2

@@ -364,7 +364,6 @@ shape = SubResource("CapsuleShape3D_kf7ot")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_0o6vh")
 
 [node name="Head" type="Node3D" parent="."]
@@ -393,7 +392,6 @@ debug_shape_thickness = 3
 [node name="WeaponRig" type="Node3D" parent="Head/Node3D/Camera3D"]
 
 [node name="Weapon" parent="Head/Node3D/Camera3D/WeaponRig" instance=ExtResource("2_8580v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13, -0.165, -0.22)
 sway_speed = 4.455
 
 [node name="UserInterface" type="Control" parent="."]
@@ -411,6 +409,7 @@ visible = false
 layout_mode = 1
 
 [node name="DebugPanel" type="PanelContainer" parent="UserInterface"]
+visible = false
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 0
 offset_left = 10.0

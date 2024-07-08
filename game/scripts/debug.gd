@@ -9,7 +9,7 @@ extends PanelContainer
 func _ready():
 	Global.debug = self
 	
-	visible = false
+	visible = visible
 	
 	#add_debug_property("FPS", frames_per_second)
 

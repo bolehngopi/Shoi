@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj35gl6xug3d"
 path.s3tc="res://.godot/imported/crowbar_0.jpg-45b71d79eeddc2a714518d45ca7c8f5c.s3tc.ctex"
+path.etc2="res://.godot/imported/crowbar_0.jpg-45b71d79eeddc2a714518d45ca7c8f5c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://game/characters/player/crowbar_0.jpg"
-dest_files=["res://.godot/imported/crowbar_0.jpg-45b71d79eeddc2a714518d45ca7c8f5c.s3tc.ctex"]
+dest_files=["res://.godot/imported/crowbar_0.jpg-45b71d79eeddc2a714518d45ca7c8f5c.s3tc.ctex", "res://.godot/imported/crowbar_0.jpg-45b71d79eeddc2a714518d45ca7c8f5c.etc2.ctex"]
 
 [params]
 

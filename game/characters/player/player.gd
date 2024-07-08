@@ -72,6 +72,7 @@ var state : String = "normal"
 var low_ceiling : bool = false # This is for when the cieling is too low and the player needs to crouch.
 var was_on_floor : bool = true # Was the player on the floor last frame (for landing animation)
 var frames_per_second : String
+var is_pause : bool = false
 
 # The reticle should always have a Control node as the root
 var RETICLE : Control
@@ -329,6 +330,7 @@ func headbob_animation(moving):
 func _process(delta):
 	if pausing_enabled:
 		if Input.is_action_just_pressed(PAUSE):
+			is_pause = !is_pause
 			match Input.mouse_mode:
 				Input.MOUSE_MODE_CAPTURED:
 					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -350,6 +352,6 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		HEAD.rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		HEAD.rotation_degrees.x -= event.relative.y * mouse_sensitivity
-	
+	#Global.debug.add_property("pause", is_pause, 5)
 	if event.is_action_pressed("attack"):
 		WEAPON_CONTROLLER._attack()
